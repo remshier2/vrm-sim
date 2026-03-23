@@ -46,7 +46,14 @@ function loadScenario(key) {
 }
 
 function syncChips() {
-  
+  document.querySelectorAll('.chip[data-group]').forEach(c => {
+    const g = c.dataset.group, v = c.dataset.val;
+    c.classList.remove('on');
+    if (g === 'type' || g === 'vendor') { if (state[g] === v) c.classList.add('on'); }
+    else if (state[g] && state[g].includes(v)) c.classList.add('on');
+  });
+}
+
 function chipClick(el) {
   const g = el.dataset.group, v = el.dataset.val;
   if (g === 'type' || g === 'vendor') {
