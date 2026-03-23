@@ -595,7 +595,7 @@
         </div>
 
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="evaluate()">Classify</button>
+          <button class="btn btn-primary" onclick="runClassify()">Classify</button>
         </div>
 
         <div class="result-area" id="result-area">
@@ -787,7 +787,7 @@ function loadScenario(key) {
   state.type = s.type; state.vendor = s.vendor;
   state.data = s.data.slice(); state.signals = s.signals.slice();
   syncChips();
-  evaluate();
+  runClassify();
 }
 
 function resetAll() {
@@ -827,7 +827,7 @@ function submitFeedback(type) {
   document.getElementById('feedback-thanks').style.display = 'block';
 }
 
-function evaluate() {
+function runClassify() {
   var name = document.getElementById('inp-name').value.trim() || 'This tool';
   var type = state.type, vendor = state.vendor, data = state.data, signals = state.signals;
 
